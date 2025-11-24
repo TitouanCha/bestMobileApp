@@ -15,13 +15,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      # Ecrire un step, qui à partir du context, determine le type de build
-      # Utiliser les context pour determiner la branche
-
-      # Assigner une valeur à une vaiable
-      # ------------------------------------
-      
       # echo "TYPE=Debug" >> $GITHUB_OUTPUT
       # echo "TYPE=Release" >> $GITHUB_OUTPUT
 
