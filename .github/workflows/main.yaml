@@ -23,15 +23,15 @@ jobs:
       - name: Determiner le type de build
         id: build-type
         run: |
-          if [[  "${{ github.ref_name" }}" == "main" ]]; then
+          if [[ "${{ github.ref_name" }}" == "main" ]]; then
             echo "BUILD_TYPE=Release" >> $GITHUB_OUTPUT
           else
-             echo "BUILD_TYPE=Debug" >> $GITHUB_OUTPUT
+            echo "BUILD_TYPE=Debug" >> $GITHUB_OUTPUT
           fi
       # Ce step doit se lancer si le trigger se fait sur la branche develop
       - name: Build debug
         # conditionner ce step
-        if: steps.build-type.outputs.TYPE
+        if: steps.build-type.outputs.BUILD_TYPE == "Debug"
         run: ./gradlew assembleDebug
 
       # Ce step doit se lancer si le trigger se fait sur la branche main
